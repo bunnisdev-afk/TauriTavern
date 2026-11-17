@@ -201,6 +201,23 @@ export function createRspackConfigs(mode = 'production') {
     },
   };
 
+  const moruetteHubConfig = {
+    ...createSharedConfig(mode, 'moruette-hub'),
+    entry: {
+      index: './src/scripts/extensions/moruette-hub/src/index.tsx',
+    },
+    output: {
+      filename: '[name].bundle.js',
+      path: path.resolve(__dirname, 'src/scripts/extensions/moruette-hub/dist'),
+      module: true,
+      library: {
+        type: 'module'
+      },
+      clean: true,
+    },
+    module: createReactModule(development),
+  };
+
   const tauriTavernSettingsConfig = {
     ...createSharedConfig(mode, 'tauritavern-settings'),
     dependencies: ['vendor-libs'],
@@ -221,7 +238,7 @@ export function createRspackConfigs(mode = 'production') {
     module: createReactModule(development),
   };
 
-  return [coreConfig, agentSystemConfig, mcpManagerConfig, inAppAgentConfig, tauriTavernSettingsConfig];
+  return [coreConfig, agentSystemConfig, mcpManagerConfig, inAppAgentConfig, moruetteHubConfig, tauriTavernSettingsConfig];
 }
 
 export default (_env, argv = {}) => createRspackConfigs(argv.mode ?? 'production');

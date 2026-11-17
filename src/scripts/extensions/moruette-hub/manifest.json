@@ -1,0 +1,11 @@
+{
+    "display_name": "Moruette Hub",
+    "loading_order": 27,
+    "requires": [],
+    "optional": [],
+    "js": "dist/index.bundle.js",
+    "css": "style.css",
+    "author": "bunnisdev-afk",
+    "version": "0.1.0",
+    "description": "A mobile-first creative hub prototype for social discovery, fandom notes, roleplay spaces, and creator guides."
+}
